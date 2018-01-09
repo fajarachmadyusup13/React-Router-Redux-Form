@@ -1,6 +1,15 @@
 import React, { Component } from 'react';
+import { connect } from "react-redux";
+
+import { fetchData } from "../actions";
+
 
 class PostIndex extends Component {
+    componentDidMount(){
+        this.props.fetchData();
+    }
+
+
     render() {
         return (
             <div>
@@ -10,4 +19,4 @@ class PostIndex extends Component {
     }
 }
 
-export default PostIndex;
+export default connect(null, {fetchData})(PostIndex);
